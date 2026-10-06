@@ -5,6 +5,7 @@ import '../../app/dimens.dart';
 import '../../app/routes.dart';
 import '../../core/app_info.dart';
 import '../../shared/layout/adaptive_layout.dart';
+import '../../l10n/app_localizations.dart';
 import '../appearance/selected_logo_mark.dart';
 import 'hub/settings_category_tile.dart';
 
@@ -18,8 +19,9 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Scaffold(
-      appBar: AppBar(title: const Text('Settings')),
+      appBar: AppBar(title: Text(l10n.settings)),
       // A settings row is a label and a control; on a wide window the column
       // stops growing and centres rather than pulling the two apart.
       body: AdaptiveContentWidth(
@@ -31,59 +33,57 @@ class SettingsScreen extends StatelessWidget {
             const SizedBox(height: AppSpacing.md),
             SettingsCategoryTile(
               icon: Icons.hub_outlined,
-              title: 'Connections',
-              subtitle: 'Jellyfin, Plex, Navidrome/Subsonic, local files, '
-                  'Audiobookshelf',
+              title: l10n.connections,
+              subtitle: l10n.connectionsSubtitle,
               onTap: () => context.push(AppRoutes.settingsConnections),
             ),
             const SizedBox(height: AppSpacing.md),
             SettingsCategoryTile(
               icon: Icons.play_circle_outline,
-              title: 'Music & playback',
-              subtitle: 'Default source and playback behaviour',
+              title: l10n.musicPlayback,
+              subtitle: l10n.musicPlaybackSubtitle,
               onTap: () => context.push(AppRoutes.settingsPlayback),
             ),
             const SizedBox(height: AppSpacing.md),
             SettingsCategoryTile(
               icon: Icons.sd_storage_outlined,
-              title: 'Cache & data',
-              subtitle: 'Smart pre-cache and cache size',
+              title: l10n.cacheData,
+              subtitle: l10n.cacheDataSubtitle,
               onTap: () => context.push(AppRoutes.settingsCache),
             ),
             const SizedBox(height: AppSpacing.md),
             SettingsCategoryTile(
               icon: Icons.download_outlined,
-              title: 'Offline & downloads',
-              subtitle: 'Mobile data and offline downloads',
+              title: l10n.offlineDownloads,
+              subtitle: l10n.offlineDownloadsSubtitle,
               onTap: () => context.push(AppRoutes.settingsDownloads),
             ),
             const SizedBox(height: AppSpacing.md),
             SettingsCategoryTile(
               icon: Icons.palette_outlined,
-              title: 'Appearance',
-              subtitle: 'App icon and in-app branding',
+              title: l10n.appearance,
+              subtitle: l10n.appearanceSubtitle,
               onTap: () => context.push(AppRoutes.settingsAppearance),
             ),
             const SizedBox(height: AppSpacing.md),
             SettingsCategoryTile(
               icon: Icons.auto_awesome_outlined,
-              title: 'Welcome tour',
-              subtitle:
-                  'Replay the Linthra introduction and music-source guide',
+              title: l10n.welcomeTour,
+              subtitle: l10n.welcomeTourSubtitle,
               onTap: () => context.push(AppRoutes.onboardingReplay),
             ),
             const SizedBox(height: AppSpacing.md),
             SettingsCategoryTile(
               icon: Icons.help_outline,
-              title: 'Diagnostics & support',
-              subtitle: 'Report a bug, copy diagnostics',
+              title: l10n.diagnosticsSupport,
+              subtitle: l10n.diagnosticsSupportSubtitle,
               onTap: () => context.push(AppRoutes.settingsDiagnostics),
             ),
             const SizedBox(height: AppSpacing.md),
             SettingsCategoryTile(
               icon: Icons.info_outline,
-              title: 'About',
-              subtitle: 'Version, support, and project links',
+              title: l10n.about,
+              subtitle: l10n.aboutSubtitle,
               onTap: () => context.push(AppRoutes.settingsAbout),
             ),
           ],

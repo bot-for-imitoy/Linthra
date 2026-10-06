@@ -33,6 +33,7 @@ import 'brand_theme.dart';
 import 'router.dart';
 import 'shortcuts/linthra_shortcuts.dart';
 import 'theme.dart';
+import '../l10n/app_localizations.dart';
 
 /// The notification-permission seam the app asks through after onboarding.
 ///
@@ -261,6 +262,12 @@ class _LinthraAppState extends ConsumerState<LinthraApp>
         theme: lightTheme,
         darkTheme: darkTheme,
         themeMode: themeMode.materialThemeMode,
+        supportedLocales: const <Locale>[Locale('en'), Locale('zh')],
+        localizationsDelegates: const <LocalizationsDelegate<Object>>[
+          LinthraLocalizationsDelegate(),
+          DefaultWidgetsLocalizations.delegate,
+          DefaultMaterialLocalizations.delegate,
+        ],
         scrollBehavior: const AppScrollBehavior(),
         home: const _BootstrapSurface(),
       );
@@ -278,6 +285,13 @@ class _LinthraAppState extends ConsumerState<LinthraApp>
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: themeMode.materialThemeMode,
+      localeResolutionCallback: (locale, supported) => locale,
+      supportedLocales: const <Locale>[Locale('en'), Locale('zh')],
+      localizationsDelegates: const <LocalizationsDelegate<Object>>[
+        LinthraLocalizationsDelegate(),
+        DefaultWidgetsLocalizations.delegate,
+        DefaultMaterialLocalizations.delegate,
+      ],
       // One scroll policy for the whole app, routes and dialogs included:
       // every `Scrollable` resolves its physics and its overscroll decoration
       // through the `ScrollConfiguration` this installs, so none of them needs

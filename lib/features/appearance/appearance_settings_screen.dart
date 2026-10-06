@@ -12,6 +12,7 @@ import 'custom_theme_card.dart';
 import 'desktop_density_card.dart';
 import 'linthra_logo_mark.dart';
 import 'theme_mode_card.dart';
+import '../../l10n/app_localizations.dart';
 
 /// "App icon & branding" — reached from Settings → Appearance.
 ///
@@ -33,8 +34,9 @@ class AppearanceSettingsScreen extends ConsumerWidget {
     // changes the in-app mark only, so we skip the home-screen hint there.
     final bool launcherSwitchSupported =
         ref.watch(launcherIconServiceProvider).isSupported;
+    final l10n = context.l10n;
     return Scaffold(
-      appBar: AppBar(title: const Text('App icon & branding')),
+      appBar: AppBar(title: Text(l10n.appIconBranding)),
       body: ListView(
         padding: const EdgeInsets.all(AppSpacing.md),
         children: <Widget>[
@@ -137,7 +139,7 @@ class _IntroCard extends StatelessWidget {
                 const SizedBox(width: AppSpacing.sm),
                 Expanded(
                   child: Text(
-                    'Make Linthra yours',
+                    context.l10n.makeLinthraYours,
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w600,
                     ),
