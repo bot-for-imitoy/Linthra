@@ -7,38 +7,21 @@ import '../data/locales/zh_CN.dart';
 class LinthraLocalizations {
   LinthraLocalizations(Locale locale)
       : locale = locale,
-        _strings = locale.languageCode == 'zh'
-            ? simplifiedChineseStrings
-            : englishStrings;
+        _strings = <Map<String, String>>[
+          if (locale.languageCode == 'zh') simplifiedChineseStrings,
+          englishStrings,
+        ];
 
   final Locale locale;
-  final Map<String, String> _strings;
+  final List<Map<String, String>> _strings;
 
-  String _get(String key) => _strings[key] ?? englishStrings[key] ?? key;
-  String get settings => _get('settings');
-  String get connections => _get('connections');
-  String get connectionsSubtitle => _get('connectionsSubtitle');
-  String get musicPlayback => _get('musicPlayback');
-  String get musicPlaybackSubtitle => _get('musicPlaybackSubtitle');
-  String get cacheData => _get('cacheData');
-  String get cacheDataSubtitle => _get('cacheDataSubtitle');
-  String get offlineDownloads => _get('offlineDownloads');
-  String get offlineDownloadsSubtitle => _get('offlineDownloadsSubtitle');
-  String get appearance => _get('appearance');
-  String get appearanceSubtitle => _get('appearanceSubtitle');
-  String get welcomeTour => _get('welcomeTour');
-  String get welcomeTourSubtitle => _get('welcomeTourSubtitle');
-  String get diagnosticsSupport => _get('diagnosticsSupport');
-  String get diagnosticsSupportSubtitle => _get('diagnosticsSupportSubtitle');
-  String get about => _get('about');
-  String get aboutSubtitle => _get('aboutSubtitle');
-  String get appIconBranding => _get('appIconBranding');
-  String get makeLinthraYours => _get('makeLinthraYours');
-  String get appearanceDescription => _get('appearanceDescription');
-  String get language => _get('language');
-  String get systemLanguage => _get('systemLanguage');
-  String get simplifiedChinese => _get('simplifiedChinese');
-  String get english => _get('english');
+  String? get(String key) {
+    for (final Map<String, String> strings in _strings) {
+      final String? value = strings[key];
+      if (value != null) return value;
+    }
+    return null;
+  }
 }
 
 class LinthraLocalizationsDelegate extends LocalizationsDelegate<LinthraLocalizations> {

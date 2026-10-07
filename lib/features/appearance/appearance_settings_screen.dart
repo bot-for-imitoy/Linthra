@@ -36,7 +36,7 @@ class AppearanceSettingsScreen extends ConsumerWidget {
         ref.watch(launcherIconServiceProvider).isSupported;
     final l10n = context.l10n;
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.appIconBranding)),
+      appBar: AppBar(title: Text(l10n.get('appIconBranding')!)),
       body: ListView(
         padding: const EdgeInsets.all(AppSpacing.md),
         children: <Widget>[
@@ -139,7 +139,7 @@ class _IntroCard extends StatelessWidget {
                 const SizedBox(width: AppSpacing.sm),
                 Expanded(
                   child: Text(
-                    context.l10n.makeLinthraYours,
+                    context.l10n.get('makeLinthraYours')!,
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w600,
                     ),

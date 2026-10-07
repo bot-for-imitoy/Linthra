@@ -21,7 +21,7 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.settings)),
+      appBar: AppBar(title: Text(l10n.get('settings')!)),
       // A settings row is a label and a control; on a wide window the column
       // stops growing and centres rather than pulling the two apart.
       body: AdaptiveContentWidth(
@@ -33,57 +33,57 @@ class SettingsScreen extends StatelessWidget {
             const SizedBox(height: AppSpacing.md),
             SettingsCategoryTile(
               icon: Icons.hub_outlined,
-              title: l10n.connections,
-              subtitle: l10n.connectionsSubtitle,
+              title: l10n.get('connections')!,
+              subtitle: l10n.get('connectionsSubtitle')!,
               onTap: () => context.push(AppRoutes.settingsConnections),
             ),
             const SizedBox(height: AppSpacing.md),
             SettingsCategoryTile(
               icon: Icons.play_circle_outline,
-              title: l10n.musicPlayback,
-              subtitle: l10n.musicPlaybackSubtitle,
+              title: l10n.get('musicPlayback')!,
+              subtitle: l10n.get('musicPlaybackSubtitle')!,
               onTap: () => context.push(AppRoutes.settingsPlayback),
             ),
             const SizedBox(height: AppSpacing.md),
             SettingsCategoryTile(
               icon: Icons.sd_storage_outlined,
-              title: l10n.cacheData,
-              subtitle: l10n.cacheDataSubtitle,
+              title: l10n.get('cacheData')!,
+              subtitle: l10n.get('cacheDataSubtitle')!,
               onTap: () => context.push(AppRoutes.settingsCache),
             ),
             const SizedBox(height: AppSpacing.md),
             SettingsCategoryTile(
               icon: Icons.download_outlined,
-              title: l10n.offlineDownloads,
-              subtitle: l10n.offlineDownloadsSubtitle,
+              title: l10n.get('offlineDownloads')!,
+              subtitle: l10n.get('offlineDownloadsSubtitle')!,
               onTap: () => context.push(AppRoutes.settingsDownloads),
             ),
             const SizedBox(height: AppSpacing.md),
             SettingsCategoryTile(
               icon: Icons.palette_outlined,
-              title: l10n.appearance,
-              subtitle: l10n.appearanceSubtitle,
+              title: l10n.get('appearance')!,
+              subtitle: l10n.get('appearanceSubtitle')!,
               onTap: () => context.push(AppRoutes.settingsAppearance),
             ),
             const SizedBox(height: AppSpacing.md),
             SettingsCategoryTile(
               icon: Icons.auto_awesome_outlined,
-              title: l10n.welcomeTour,
-              subtitle: l10n.welcomeTourSubtitle,
+              title: l10n.get('welcomeTour')!,
+              subtitle: l10n.get('welcomeTourSubtitle')!,
               onTap: () => context.push(AppRoutes.onboardingReplay),
             ),
             const SizedBox(height: AppSpacing.md),
             SettingsCategoryTile(
               icon: Icons.help_outline,
-              title: l10n.diagnosticsSupport,
-              subtitle: l10n.diagnosticsSupportSubtitle,
+              title: l10n.get('diagnosticsSupport')!,
+              subtitle: l10n.get('diagnosticsSupportSubtitle')!,
               onTap: () => context.push(AppRoutes.settingsDiagnostics),
             ),
             const SizedBox(height: AppSpacing.md),
             SettingsCategoryTile(
               icon: Icons.info_outline,
-              title: l10n.about,
-              subtitle: l10n.aboutSubtitle,
+              title: l10n.get('about')!,
+              subtitle: l10n.get('aboutSubtitle')!,
               onTap: () => context.push(AppRoutes.settingsAbout),
             ),
           ],

@@ -5,9 +5,10 @@ void main() {
   test('supports English and Simplified Chinese', () {
     final en = LinthraLocalizations(const Locale('en'));
     final zh = LinthraLocalizations(const Locale('zh', 'CN'));
-    expect(en.settings, 'Settings');
-    expect(zh.settings, '设置');
-    expect(zh.connections, '连接');
-    expect(zh.appearance, '外观');
+    expect(en.get('settings'), 'Settings');
+    expect(zh.get('settings'), '设置');
+    expect(zh.get('connections'), '连接');
+    expect(zh.get('appearance'), '外观');
+    expect(zh.get('missing'), isNull);
   });
 }
